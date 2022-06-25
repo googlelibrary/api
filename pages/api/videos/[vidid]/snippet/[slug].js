@@ -1,6 +1,12 @@
 import { fetch } from "../../../../../util/fetch"
+import Cors from 'cors'
+import initMiddleware from '../../../../../lib/int-middelware'
+
+// Initialize the cors middleware
+const cors = initMiddleware(Cors({methods: ['GET'],}))
 
 export default async function handler(req, res) {
+    await cors(req, res)
     if (req.method == 'GET') {
         const vidid = req.query.vidid
         const id = req.query.slug
