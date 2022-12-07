@@ -7,7 +7,7 @@ const cors = initMiddleware(Cors({methods: ['GET'],}))
 export default async function handler(req, res) {
   await cors(req, res)
   if (req.method == 'GET') {
-    res.status(200).json({ "error": "path is not specified. try '/videos/videoId''" })
+    res.status(200).json({ "error": "path is not specified. try '/videos/videoId' or '/channel'" })
   } else {
     let reason = "" + req.method + " Method is Not Allowed"
     res.status(405).json({ "error": { "code": "405", "reason": reason } })
